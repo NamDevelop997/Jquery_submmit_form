@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="post" id="login_form">
+      <label for="userName">UserName:</label>
+      <input type="text" name="username" id="userName" />
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" />
+      <input type="submit" value="Submit" />
+    </form>
+    <section id="content"></section>
+
+    <script src="./js/jquery.js"></script>
+
+    <script>
+      $(function () {
+        $("#login_form").submit(function () {
+         
+          let userName = $("#userName").val();
+          let passWord = $("#password").val();
+          let text =
+            "<p>UserName: <span id='txt_userName'></span>" +
+            userName +
+            "</p><p>Password: <span id='txt_password'>" +
+            passWord +
+            "</span></p>";
+          $("#txt_userName").text(userName);
+          $("#txt_password").text(passWord);
+          $("#content").html(text);
+
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>
